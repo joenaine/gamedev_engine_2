@@ -1,0 +1,40 @@
+Project Architecture
+
+1. Character Data System:
+   - CharacterData: Encapsulates all character stats
+   - Properties with get-only accessors for read-only access
+   - Modifications only through specific methods (TakeDamage, Heal)
+
+2. Input System:
+   - IInputHandler: Interface for all input handling
+   - PlayerInputHandler: Reads keyboard input for player
+   - NPCInputHandler: Provides AI-driven input for enemies
+   - Both implement same interface for consistent behavior
+
+3. Character System:
+   - Character: Abstract base class for all characters
+   - Player: Concrete implementation for player character
+   - Enemy: Concrete implementation for AI-controlled enemies
+   - All initialization passes full Character reference (not just CharacterData)
+
+4. AI State Machine:
+   - AIStateMachine: Manages state transitions
+   - AIState: Abstract base for all states
+   - IdleState: Enemy waits and detects player
+   - ChaseState: Enemy pursues player
+   - AttackState: Enemy attacks player at close range
+
+5. State Transitions:
+   - Idle -> Chase: Player detected within detection range
+   - Chase -> Attack: Player within attack range
+   - Attack -> Chase: Player moves out of attack range (but still in detection range)
+   - Attack -> Idle: Player moves out of detection range entirely
+   - Chase -> Idle: Player moves out of detection range
+
+Key Design Decisions:
+- CharacterData is read-only from outside to prevent direct modification
+- All classes receive Character reference for better access to methods/transforms
+- Input interface allows same movement/action code for player and NPCs
+- State machine keeps AI behavior organized and maintainable
+- Distance-based transitions provide realistic enemy behavior
+

@@ -1,0 +1,15 @@
+Player Controls:
+- W: Move Forward
+- S: Move Backward
+- A: Move Left
+- D: Move Right
+- Space: Attack
+- ESC: Quit Game
+
+Enemy AI:
+- Automatically detects player within detection range (yellow sphere in editor)
+- Chases player when detected
+- Attacks when player is within attack range (red sphere in editor)
+- Returns to chase if player moves out of attack range
+- Returns to idle if player moves out of detection range
+

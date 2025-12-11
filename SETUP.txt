@@ -1,0 +1,37 @@
+Setup Instructions:
+
+1. Create New 3D Unity Project
+
+2. Import Scripts:
+   - Copy entire Scripts folder to Assets/Scripts
+
+3. Create Scene Objects:
+   - Plane (ground): GameObject -> 3D Object -> Plane
+   - Player: GameObject -> 3D Object -> Capsule
+     * Add component: Player
+     * Set values in inspector (health, speed, etc.)
+   - Enemies: GameObject -> 3D Object -> Cube (create multiple)
+     * Add component: Enemy to each
+     * Set values in inspector
+   - GameManager: GameObject -> Create Empty
+     * Add component: GameManager
+
+4. Configure GameManager:
+   - Drag Player object to Player field
+   - Set Enemies array size
+   - Drag all Enemy objects to array slots
+
+5. Configure Each Enemy:
+   - Drag Player object to Player field
+   - Adjust detection range and attack range as needed
+
+6. Test:
+   - Press Play
+   - Move player with WASD
+   - Enemies should detect, chase, and attack
+
+Tips:
+- Use Scene view to see detection/attack range gizmos
+- Adjust enemy speeds and ranges for different difficulties
+- Add materials/colors to distinguish player from enemies
+
